@@ -1,0 +1,155 @@
+/* ───────── RESET ─────────────────────────── */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: "Inter", sans-serif; color: #1c2127; }
+
+/* ───────── 공통 변수 ─────────────────────── */
+:root {
+  --bg:        #e7f1fb;
+  --txt:       #1c2127;
+  --line:      #000;
+  --gap-xl:    120px;
+  --gap-md:    48px;
+}
+
+/* ───────── 레이아웃 컨테이너 ─────────────── */
+.legal-container {
+  width: 100%;
+  height: 100vh;
+  background: #ffffff;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* ───────── HEADER ───────────────────────── */
+.legal-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 55px;
+  padding: 0 24px;
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+}
+.home-icon { width: 24px; height: 24px; }
+.logo      { font-size: 16px; font-weight: 500; }
+
+/* ───────── 본문 ─────────────────────────── */
+.legal-content {
+  max-width: 960px;
+  margin: 60px auto 100px;
+  padding: 0 24px;
+}
+
+h1 { font-size: 32px; font-weight: 700; margin-bottom: 40px; }
+h2 { font-size: 24px; font-weight: 700; margin: 48px 0 12px; }
+h3 { font-size: 18px; font-weight: 600; margin: 24px 0 8px; }
+
+p, li { font-size: 16px; line-height: 1.6; margin-bottom: 14px; }
+ul    { padding-left: 20px; }
+.updated { font-size: 14px; color: #5f6c7b; margin-bottom: 16px; }
+
+/* ───────── FOOTER (반응형) ──────────────── */
+.df-footer {
+  background: var(--bg);
+  color: var(--txt);
+  padding: 48px 5vw 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  font-size: 16px;
+
+  /* ✅ 추가/수정된 부분 */
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* TOP : 브랜드 + 구독 -------------------------------- */
+.df-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--gap-xl);
+}
+
+/* 브랜드 */
+.df-brand          { max-width: 780px; }
+.df-logo           { font-size: 52px; font-weight: 400; margin: 0 0 20px; }
+.df-desc           { font-size: 20px; line-height: 1.0; max-width: 800px; }
+.df-sns            { display: flex; gap: 16px; margin-top: 24px; }
+.df-sns img        { width: 32px; height: 32px; transition: opacity 0.2s; }
+.df-sns a:hover img{ opacity: 0.6; }
+
+/* 구독 */
+.df-subscribe h3   { font-size: 20px; font-weight: 700; margin: 0 0 16px; text-align: left; }
+.df-subscribe form { display: flex; height: 71px; border: 1px solid var(--line); max-width: 600px; }
+.df-subscribe input{
+  flex: 1; border: none; background: var(--bg); padding: 0 24px; font-size: 20px;
+}
+.df-subscribe button{
+  width: 220px; border: none; background: var(--bg); font-size: 20px; cursor: pointer;
+}
+.df-subscribe button:hover { background: rgba(0,0,0,.05); }
+
+/* Divider --------------------------------------------- */
+.df-divider { border: 0; border-top: 1px solid var(--line); margin: 0; }
+
+/* MID : Follow / Contact / Rights -------------------- */
+.df-mid {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--gap-xl);
+  flex-wrap: wrap;
+  font-size: 14px;
+}
+
+.df-left {
+  display: flex;
+}
+
+/* Follow */
+.df-follow h4 { font-size: 20px; margin: 0 0 7px; }
+.df-follow .df-sns { margin-top: 12px; }
+
+/* Contact */
+.df-contact {
+  margin-left: 50px;
+}
+.df-contact h4 { font-size: 20px; margin: 0 0 12px; }
+.df-contact p  { display: flex; align-items: center; gap: 8px; margin: 4px 0; }
+.df-contact img{ width: 20px; height: 20px; }
+
+/* Rights */
+.df-rights {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.df-rights span { line-height: 1.4; }
+.df-rights a    { text-decoration: underline; color: inherit; font-size: 14px; }
+.df-rights a:hover { opacity: 0.6; }
+
+/* ───────── RESPONSIVE ───────────────────── */
+
+/* 1200px 이하 : 두단 레이아웃 */
+@media (max-width: 1200px) {
+  .df-top        { flex-direction: column; gap: var(--gap-md); }
+  .df-subscribe h3 { text-align: left; }
+  .df-rights     { text-align: left; }
+  .df-mid        { gap: var(--gap-md); }
+}
+
+/* 768px 이하 : 세로 스택 */
+@media (max-width: 768px) {
+  .df-logo       { font-size: 40px; }
+  .df-desc       { font-size: 18px; }
+  .df-sns img    { width: 28px; height: 28px; }
+  .df-subscribe form { flex-direction: column; height: auto; }
+  .df-subscribe button { width: 100%; border-top: 1px solid var(--line); }
+  .df-mid        { flex-direction: column; gap: var(--gap-md); }
+}
+

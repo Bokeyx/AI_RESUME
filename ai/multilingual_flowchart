@@ -1,0 +1,11 @@
+digraph {
+	A [label="입력 텍스트"]
+	B [label="언어 감지"]
+	C [label="번역 (if Korean)"]
+	D [label="BERT 감성 분석"]
+	E [label="점수 반환 (1~5점 → 0~100)"]
+	A -> B
+	B -> C
+	C -> D
+	D -> E
+}
